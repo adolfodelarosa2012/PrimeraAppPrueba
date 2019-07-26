@@ -111,13 +111,19 @@
                             <outlet property="delegate" destination="bcI-m7-S3C" id="xC4-a1-fuN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Empleados" id="Wh8-Vc-LYN"/>
+                    <navigationItem key="navigationItem" title="Empleados" id="Wh8-Vc-LYN">
+                        <barButtonItem key="leftBarButtonItem" title="Ordenar" id="ejE-Ki-XJq">
+                            <connections>
+                                <action selector="ordenar:" destination="bcI-m7-S3C" id="mWN-vE-TzH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1r-Bw-CEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="826.08695652173924" y="102.45535714285714"/>
         </scene>
-        <!--Detalle View Controller-->
+        <!--Detalle de empleado-->
         <scene sceneID="glz-nW-4Ng">
             <objects>
                 <tableViewController id="MAZ-wh-Wsy" customClass="DetalleViewController" customModule="PrimeraAppPrueba" customModuleProvider="target" sceneMemberID="viewController">
@@ -295,15 +301,29 @@
                             <outlet property="delegate" destination="MAZ-wh-Wsy" id="0hq-2j-tfs"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Detalle de empleado" id="DQv-61-cDO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e3O-0G-zgE">
+                            <connections>
+                                <segue destination="DDc-fs-tCU" kind="unwind" identifier="cancel" unwindAction="salidaDetalle:" id="JRH-8P-YLN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2Pu-PH-lXb">
+                            <connections>
+                                <action selector="save:" destination="MAZ-wh-Wsy" id="lSJ-hE-WbV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="apellidos" destination="yFX-ek-jW5" id="yHs-nN-NQA"/>
                         <outlet property="departamento" destination="sbA-Z8-948" id="lHv-pN-qkz"/>
                         <outlet property="email" destination="cCB-AP-hIB" id="paS-zh-MRj"/>
                         <outlet property="imagenAvatar" destination="ACz-aB-hUS" id="LKk-PD-OPO"/>
                         <outlet property="nombre" destination="bvR-vI-rzB" id="muh-j8-2Ax"/>
+                        <segue destination="DDc-fs-tCU" kind="unwind" identifier="save" unwindAction="salidaDetalle:" id="mbz-op-VZF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyG-hj-7tl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DDc-fs-tCU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1783" y="102"/>
         </scene>
