@@ -18,6 +18,7 @@ class DetalleViewController: UITableViewController {
    
    var seleccionado:Empleados?
    var rowOrigen:Int?
+   var imagen:UIImage?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -25,6 +26,7 @@ class DetalleViewController: UITableViewController {
       apellidos.text = seleccionado?.last_name
       departamento.text = seleccionado?.department
       email.text = seleccionado?.email
+      imagenAvatar.image = imagen
       
       let tap = UITapGestureRecognizer(target: self, action: #selector(tocoPantalla(sender:)))
       view.addGestureRecognizer(tap)
@@ -35,6 +37,7 @@ class DetalleViewController: UITableViewController {
    }
    
    @IBAction func cambiarAvatar(_ sender: UIButton) {
+      
    }
    
    @IBAction func save(_ sender: UIBarButtonItem) {
