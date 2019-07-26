@@ -131,8 +131,93 @@
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="-502.23214285714283"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Swz-pV-vHW">
+            <objects>
+                <viewController id="Y7I-sF-tG9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cbp-pE-cpE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iPhone-7-plus-background-1-deteched" translatesAutoresizingMaskIntoConstraints="NO" id="ONo-ZZ-baI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYe-iZ-MTC">
+                                <rect key="frame" x="177.5" y="52" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="orQ-sk-oG5">
+                                <rect key="frame" x="20" y="81" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqP-Cw-J6P">
+                                <rect key="frame" x="170" y="119" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hJs-3y-3H9">
+                                <rect key="frame" x="20" y="148" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGP-mV-AkZ">
+                                <rect key="frame" x="178.5" y="186" width="57" height="30"/>
+                                <state key="normal" title="Acceder"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneybag" translatesAutoresizingMaskIntoConstraints="NO" id="RUM-Rf-f4Q">
+                                <rect key="frame" x="185.5" y="224" width="43" height="43"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPE-0S-9y0">
+                                <rect key="frame" x="163.5" y="275" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(c) 2019 Gabhel Studios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n21-PU-013">
+                                <rect key="frame" x="114.5" y="833" width="185" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="orQ-sk-oG5" firstAttribute="top" secondItem="xYe-iZ-MTC" secondAttribute="bottom" constant="8" id="17K-7D-dKi"/>
+                            <constraint firstItem="mqP-Cw-J6P" firstAttribute="top" secondItem="orQ-sk-oG5" secondAttribute="bottom" constant="8" id="Ee7-rH-AyV"/>
+                            <constraint firstItem="n21-PU-013" firstAttribute="bottom" secondItem="fCP-Y4-2sY" secondAttribute="bottom" constant="-8" id="Fz6-j7-Mcv"/>
+                            <constraint firstItem="xYe-iZ-MTC" firstAttribute="top" secondItem="fCP-Y4-2sY" secondAttribute="top" constant="8" id="Kyz-JS-CwX"/>
+                            <constraint firstItem="hJs-3y-3H9" firstAttribute="leading" secondItem="orQ-sk-oG5" secondAttribute="leading" id="LQl-PJ-7i3"/>
+                            <constraint firstItem="RUM-Rf-f4Q" firstAttribute="centerX" secondItem="QGP-mV-AkZ" secondAttribute="centerX" id="PAx-Vo-Qhq"/>
+                            <constraint firstItem="fCP-Y4-2sY" firstAttribute="trailing" secondItem="orQ-sk-oG5" secondAttribute="trailing" constant="20" id="TqX-s3-F0a"/>
+                            <constraint firstItem="xYe-iZ-MTC" firstAttribute="centerX" secondItem="cbp-pE-cpE" secondAttribute="centerX" id="Xax-lI-gjk"/>
+                            <constraint firstItem="hJs-3y-3H9" firstAttribute="top" secondItem="mqP-Cw-J6P" secondAttribute="bottom" constant="8" id="XmR-Qy-493"/>
+                            <constraint firstItem="mqP-Cw-J6P" firstAttribute="centerX" secondItem="xYe-iZ-MTC" secondAttribute="centerX" id="cNV-Vv-UdP"/>
+                            <constraint firstItem="QGP-mV-AkZ" firstAttribute="top" secondItem="hJs-3y-3H9" secondAttribute="bottom" constant="8" id="cdT-01-AzB"/>
+                            <constraint firstItem="RUM-Rf-f4Q" firstAttribute="top" secondItem="QGP-mV-AkZ" secondAttribute="bottom" constant="8" id="gPN-2d-qbr"/>
+                            <constraint firstItem="gPE-0S-9y0" firstAttribute="top" secondItem="RUM-Rf-f4Q" secondAttribute="bottom" constant="8" id="rOa-HE-UUn"/>
+                            <constraint firstItem="hJs-3y-3H9" firstAttribute="trailing" secondItem="orQ-sk-oG5" secondAttribute="trailing" id="rTO-73-kPB"/>
+                            <constraint firstItem="n21-PU-013" firstAttribute="centerX" secondItem="cbp-pE-cpE" secondAttribute="centerX" id="rrz-fD-8lR"/>
+                            <constraint firstItem="QGP-mV-AkZ" firstAttribute="centerX" secondItem="cbp-pE-cpE" secondAttribute="centerX" id="s7z-QR-k2b"/>
+                            <constraint firstItem="orQ-sk-oG5" firstAttribute="leading" secondItem="fCP-Y4-2sY" secondAttribute="leading" constant="20" id="tZf-2x-B54"/>
+                            <constraint firstItem="gPE-0S-9y0" firstAttribute="centerX" secondItem="QGP-mV-AkZ" secondAttribute="centerX" id="u0a-aw-jSg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fCP-Y4-2sY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9go-v3-XOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1007.2" y="-502.39880059970017"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="iPhone-7-plus-background-1-deteched" width="1242" height="2208"/>
         <image name="moneybag" width="42.5" height="42.5"/>
     </resources>
 </document>
