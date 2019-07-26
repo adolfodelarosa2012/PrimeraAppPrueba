@@ -29,9 +29,12 @@ class Empleados1ViewController: UITableViewController {
    }
    
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "zeldaEmp", for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "zeldaEmp", for: indexPath) as! EmpTableViewCell
       let dato = empleados[indexPath.row]
-      cell.textLabel?.text = "\(dato.last_name), \(dato.first_name)"
+      cell.first_name.text = dato.first_name
+      cell.last_name.text = dato.last_name
+      cell.department.text = dato.department
+      cell.email.text = dato.email
       return cell
    }
    
@@ -70,14 +73,19 @@ class Empleados1ViewController: UITableViewController {
     }
     */
    
-   /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destination.
-    // Pass the selected object to the new view controller.
-    }
-    */
+   
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "irDetalle" {
+         guard let destino = segue.destination as? DetalleViewController,
+            let origen = sender as? EmpTableViewCell,
+            let indexPath = tableView.indexPath(for: origen) else {
+            return
+         }
+         destino.seleccionado = empleados[indexPath.row]
+      }
+   }
    
 }

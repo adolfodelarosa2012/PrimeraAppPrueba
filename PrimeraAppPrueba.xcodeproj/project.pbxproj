@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A4FD5D622D5D8C800E82462 /* VistaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4FD5D522D5D8C800E82462 /* VistaViewController.swift */; };
+		5A6B2BA122DF0C1B0046A3F4 /* EmpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B2BA022DF0C1B0046A3F4 /* EmpTableViewCell.swift */; };
+		5A6B2BA322DF20800046A3F4 /* DetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B2BA222DF20800046A3F4 /* DetalleViewController.swift */; };
 		5A76275722D3435300C9AE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A76275622D3435300C9AE15 /* AppDelegate.swift */; };
 		5A76275C22D3435300C9AE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A76275A22D3435300C9AE15 /* Main.storyboard */; };
 		5A76275E22D3435500C9AE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A76275D22D3435500C9AE15 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		5A4FD5D522D5D8C800E82462 /* VistaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaViewController.swift; sourceTree = "<group>"; };
+		5A6B2BA022DF0C1B0046A3F4 /* EmpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpTableViewCell.swift; sourceTree = "<group>"; };
+		5A6B2BA222DF20800046A3F4 /* DetalleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleViewController.swift; sourceTree = "<group>"; };
 		5A76275322D3435300C9AE15 /* PrimeraAppPrueba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrimeraAppPrueba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A76275622D3435300C9AE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A76275B22D3435300C9AE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				5A86AC7022DC8E9A00C23E5B /* Table1ViewController.swift */,
 				5A76275A22D3435300C9AE15 /* Main.storyboard */,
 				5AC9937E22DDE00B00A5EADC /* AppEmpleados.storyboard */,
+				5A6B2BA022DF0C1B0046A3F4 /* EmpTableViewCell.swift */,
+				5A6B2BA222DF20800046A3F4 /* DetalleViewController.swift */,
 				5AC9938222DDE3A100A5EADC /* Model.swift */,
 				5AC9938022DDE17600A5EADC /* Empleados1ViewController.swift */,
 				5AC9937A22DDB4F100A5EADC /* Test.xib */,
@@ -156,8 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6B2BA322DF20800046A3F4 /* DetalleViewController.swift in Sources */,
 				5AC9938322DDE3A100A5EADC /* Model.swift in Sources */,
 				5A4FD5D622D5D8C800E82462 /* VistaViewController.swift in Sources */,
+				5A6B2BA122DF0C1B0046A3F4 /* EmpTableViewCell.swift in Sources */,
 				5A76275722D3435300C9AE15 /* AppDelegate.swift in Sources */,
 				5A86AC7122DC8E9A00C23E5B /* Table1ViewController.swift in Sources */,
 				5AC9938122DDE17600A5EADC /* Empleados1ViewController.swift in Sources */,
