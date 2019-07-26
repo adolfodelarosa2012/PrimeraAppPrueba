@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ug5-ji-bME">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MK5-F1-1dH">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,82 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Empleados Colección-->
+        <scene sceneID="ToU-n2-oV0">
+            <objects>
+                <collectionViewController id="d50-7h-4qT" customClass="CollectionViewController" customModule="PrimeraAppPrueba" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cCT-Wl-nTU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="f7F-cx-t5w">
+                            <size key="itemSize" width="150" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="zelda" id="E5e-Ec-mba" customClass="CollectionViewCell" customModule="PrimeraAppPrueba" customModuleProvider="target">
+                                <rect key="frame" x="5" y="5" width="150" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Gm-BI-TvD">
+                                            <rect key="frame" x="2" y="2" width="64" height="64"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="YN3-yB-hXe"/>
+                                                <constraint firstAttribute="width" constant="64" id="nc5-Ve-Qu2"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TS-Xv-zYX">
+                                            <rect key="frame" x="74" y="0.0" width="72" height="66"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="It7-P7-bNm">
+                                            <rect key="frame" x="4" y="74" width="142" height="26"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="It7-P7-bNm" secondAttribute="bottom" id="0ht-8X-Qrs"/>
+                                    <constraint firstItem="It7-P7-bNm" firstAttribute="top" secondItem="6Gm-BI-TvD" secondAttribute="bottom" constant="8" id="2kD-HC-kHR"/>
+                                    <constraint firstItem="It7-P7-bNm" firstAttribute="top" secondItem="8TS-Xv-zYX" secondAttribute="bottom" constant="8" id="Axe-Rn-rOd"/>
+                                    <constraint firstItem="8TS-Xv-zYX" firstAttribute="leading" secondItem="6Gm-BI-TvD" secondAttribute="trailing" constant="8" id="MAW-Io-Gaf"/>
+                                    <constraint firstAttribute="trailing" secondItem="It7-P7-bNm" secondAttribute="trailing" constant="4" id="Oyn-tp-phG"/>
+                                    <constraint firstItem="8TS-Xv-zYX" firstAttribute="top" secondItem="E5e-Ec-mba" secondAttribute="top" id="YFO-6b-SUY"/>
+                                    <constraint firstAttribute="trailing" secondItem="8TS-Xv-zYX" secondAttribute="trailing" constant="4" id="ekl-VK-M6T"/>
+                                    <constraint firstItem="6Gm-BI-TvD" firstAttribute="top" secondItem="E5e-Ec-mba" secondAttribute="top" constant="2" id="gul-Jp-xQh"/>
+                                    <constraint firstItem="It7-P7-bNm" firstAttribute="leading" secondItem="E5e-Ec-mba" secondAttribute="leading" constant="4" id="kNu-Rd-j46"/>
+                                    <constraint firstItem="6Gm-BI-TvD" firstAttribute="leading" secondItem="E5e-Ec-mba" secondAttribute="leading" constant="2" id="w97-xD-Ys6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="email" destination="It7-P7-bNm" id="NJ7-Vw-3Jh"/>
+                                    <outlet property="imagen" destination="6Gm-BI-TvD" id="vRM-RW-jdp"/>
+                                    <outlet property="name" destination="8TS-Xv-zYX" id="Bsw-kZ-J3u"/>
+                                    <segue destination="MAZ-wh-Wsy" kind="show" identifier="detalleCelda" id="yjO-vc-uCU"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="d50-7h-4qT" id="hxR-JX-7mq"/>
+                            <outlet property="delegate" destination="d50-7h-4qT" id="1tf-By-6CL"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Empleados Colección" id="nbB-TY-Edp"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51z-oN-G3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734.7826086956522" y="-585.26785714285711"/>
+        </scene>
         <!--Empleados-->
         <scene sceneID="oT8-cM-PLa">
             <objects>
@@ -121,7 +197,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1r-Bw-CEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826.08695652173924" y="102.45535714285714"/>
+            <point key="canvasLocation" x="1736.2318840579712" y="102.45535714285714"/>
         </scene>
         <!--Detalle de empleado-->
         <scene sceneID="glz-nW-4Ng">
@@ -320,17 +396,19 @@
                         <outlet property="imagenAvatar" destination="ACz-aB-hUS" id="LKk-PD-OPO"/>
                         <outlet property="nombre" destination="bvR-vI-rzB" id="muh-j8-2Ax"/>
                         <segue destination="DDc-fs-tCU" kind="unwind" identifier="save" unwindAction="salidaDetalle:" id="mbz-op-VZF"/>
+                        <segue destination="DDc-fs-tCU" kind="unwind" identifier="salidaCol" unwindAction="salidaCollectionDetalle:" id="ioU-LY-MIH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyG-hj-7tl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DDc-fs-tCU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="102"/>
+            <point key="canvasLocation" x="2692.753623188406" y="101.78571428571428"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tabla-->
         <scene sceneID="ums-3y-6dP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ug5-ji-bME" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tabla" image="people" id="IFf-YQ-sHb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="1pX-Ar-30r">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -343,10 +421,52 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPo-Pn-VBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="826.08695652173924" y="102.45535714285714"/>
+        </scene>
+        <!--Colección-->
+        <scene sceneID="7Cd-eN-dgU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VzM-Bj-Flq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Colección" image="businessman" id="kJk-E7-UEt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="JYe-Xz-Sca">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="d50-7h-4qT" kind="relationship" relationship="rootViewController" id="HaK-Ld-lmb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kqP-2i-ezd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824.63768115942037" y="-585.26785714285711"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="reT-6S-rra">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="MK5-F1-1dH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zib-CZ-jrA">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="VzM-Bj-Flq" kind="relationship" relationship="viewControllers" id="zF7-62-Yqe"/>
+                        <segue destination="Ug5-ji-bME" kind="relationship" relationship="viewControllers" id="QS3-rF-qA6"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ElH-op-tdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-84.057971014492765" y="102.45535714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="businessman" width="30" height="30"/>
+        <image name="people" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1BR-Ep-MLH"/>
+        <segue reference="yjO-vc-uCU"/>
     </inferredMetricsTieBreakers>
 </document>

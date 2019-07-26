@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum OrigenLlamada {
+   case tabla, coleccion
+}
+
 class DetalleViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
    @IBOutlet weak var nombre: UITextField!
@@ -20,6 +24,7 @@ class DetalleViewController: UITableViewController, UIImagePickerControllerDeleg
    var rowOrigen:Int?
    var imagen:UIImage?
    var imagenCambiada = false
+   var origen:OrigenLlamada = .tabla
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -56,18 +61,28 @@ class DetalleViewController: UITableViewController, UIImagePickerControllerDeleg
          return
       }
       let newEmpleado = Empleados(id: oldEmpleado.id, first_name: first_name, last_name: last_name, email: email, department: department, avatar: oldEmpleado.avatar)
-      performSegue(withIdentifier: "save", sender: newEmpleado)
+      if origen == .tabla {
+         performSegue(withIdentifier: "save", sender: newEmpleado)
+      } else {
+         performSegue(withIdentifier: "salidaCol", sender: newEmpleado)
+      }
    }
    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      guard let newEmpleado = sender as? Empleados,
-         let destination = segue.destination as? Empleados1ViewController,
-         segue.identifier == "save" else {
+      guard let newEmpleado = sender as? Empleados else {
          return
       }
-      destination.empUpdated = newEmpleado
-      if imagenCambiada, let imagen = imagenAvatar.image {
-         saveImage(id: newEmpleado.id, image: imagen)
+      if segue.identifier == "save", let destination = segue.destination as? Empleados1ViewController {
+         destination.empUpdated = newEmpleado
+         if imagenCambiada, let imagen = imagenAvatar.image {
+            saveImage(id: newEmpleado.id, image: imagen)
+         }
+      }
+      if segue.identifier == "salidaCol", let destination = segue.destination as? CollectionViewController {
+         destination.empUpdated = newEmpleado
+         if imagenCambiada, let imagen = imagenAvatar.image {
+            saveImage(id: newEmpleado.id, image: imagen)
+         }
       }
    }
    

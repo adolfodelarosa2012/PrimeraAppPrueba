@@ -30,19 +30,37 @@ class Empleados1ViewController: UITableViewController {
    }
    
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "zeldaEmp", for: indexPath) as! EmpTableViewCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: "zeldaEmp", for: indexPath)
       let dato = empleados[indexPath.row]
-      cell.first_name.text = dato.first_name
-      cell.last_name.text = dato.last_name
-      cell.department.text = dato.department
-      cell.email.text = dato.email
-      if let imagen = loadImage(id: dato.id) {
-         cell.avatarImage.image = imagen
+      if let cellPhone = cell as? EmpTableViewCell {
+         cellPhone.first_name.text = dato.first_name
+         cellPhone.last_name.text = dato.last_name
+         cellPhone.department.text = dato.department
+         cellPhone.email.text = dato.email
+         if let imagen = loadImage(id: dato.id) {
+            cellPhone.avatarImage.image = imagen
+         } else {
+            getImage(url: dato.avatar) { imagen in
+               DispatchQueue.main.async {
+                  if let visible = tableView.indexPathsForVisibleRows, visible.contains(indexPath) {
+                     cellPhone.avatarImage.image = imagen
+                  }
+                  saveImage(id: dato.id, image: imagen)
+               }
+            }
+         }
+         return cellPhone
       } else {
-         getImage(url: dato.avatar) { imagen in
-            DispatchQueue.main.async {
-               if let visible = tableView.indexPathsForVisibleRows, visible.contains(indexPath) {
-                  cell.avatarImage.image = imagen
+         cell.textLabel?.text = "\(dato.last_name), \(dato.first_name)"
+         cell.detailTextLabel?.text = dato.email
+         if let imagen = loadImage(id: dato.id) {
+            cell.imageView?.image = imagen
+         } else {
+            getImage(url: dato.avatar) { imagen in
+               DispatchQueue.main.async {
+                  if let visible = tableView.indexPathsForVisibleRows, visible.contains(indexPath) {
+                     cell.imageView?.image = imagen
+                  }
                   saveImage(id: dato.id, image: imagen)
                }
             }
@@ -83,7 +101,7 @@ class Empleados1ViewController: UITableViewController {
       }
    }
    
-   @IBAction func ordenar(_ sender: UIBarButtonItem) {
+   func mostrarOrden(_ barButtonItem:UIBarButtonItem? = nil) {
       let alertaOrden = UIAlertController(title: "Ordenación", message: "Seleccione el tipo de orden de la lista", preferredStyle: .actionSheet)
       let accionAscendente = UIAlertAction(title: "Ascendente", style: .default) { [weak self] _ in
          self?.empleados.sort { "\($0.last_name), \($0.first_name)" < "\($1.last_name), \($1.first_name)" }
@@ -101,6 +119,26 @@ class Empleados1ViewController: UITableViewController {
       alertaOrden.addAction(accionAscendente)
       alertaOrden.addAction(accionDescendente)
       alertaOrden.addAction(accionDefecto)
+      
+      if let popOver = alertaOrden.popoverPresentationController {
+         popOver.barButtonItem = barButtonItem
+      }
+      
       present(alertaOrden, animated: true, completion: nil)
+   }
+   
+   @IBAction func ordenar(_ sender: UIBarButtonItem) {
+      mostrarOrden()
+   }
+   
+   @IBAction func ordenariPad(_ sender: UIBarButtonItem) {
+      mostrarOrden(sender)
+   }
+   
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      if UIDevice.current.userInterfaceIdiom == .pad {
+         let dato = empleados[indexPath.row]
+         NotificationCenter.default.post(name: NSNotification.Name("PULSOCELDA"), object: nil, userInfo: ["EmpleadoPulsado":dato])
+      }
    }
 }
