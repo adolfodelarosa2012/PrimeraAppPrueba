@@ -27,14 +27,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FIK-r9-h46">
-                                            <rect key="frame" x="77.5" y="0.0" width="316.5" height="43.5"/>
+                                            <rect key="frame" x="78" y="0.0" width="316" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="moneybag" id="q63-xx-YLe">
-                                            <rect key="frame" x="20" y="0.0" width="42.5" height="42.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="43" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -487,16 +487,16 @@
                                 <exclude reference="SwV-dn-Fcz"/>
                                 <exclude reference="eUz-I6-eze"/>
                                 <exclude reference="HeD-bg-Zpf"/>
-                                <exclude reference="5T0-kF-C3B"/>
-                                <exclude reference="Ckl-IW-zhK"/>
-                                <exclude reference="391-u8-hGa"/>
-                                <exclude reference="VOO-6N-aRR"/>
-                                <exclude reference="XTY-9f-WTC"/>
                                 <exclude reference="7YB-E6-nLT"/>
                                 <exclude reference="duk-ZE-OwT"/>
                                 <exclude reference="h3q-qo-yz4"/>
                                 <exclude reference="ePt-wi-zJx"/>
                                 <exclude reference="oao-v5-Pq8"/>
+                                <exclude reference="5T0-kF-C3B"/>
+                                <exclude reference="391-u8-hGa"/>
+                                <exclude reference="VOO-6N-aRR"/>
+                                <exclude reference="Ckl-IW-zhK"/>
+                                <exclude reference="XTY-9f-WTC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -512,17 +512,6 @@
                                 <exclude reference="c1h-J3-ZdP"/>
                                 <include reference="eUz-I6-eze"/>
                                 <include reference="HeD-bg-Zpf"/>
-                                <include reference="5T0-kF-C3B"/>
-                                <exclude reference="d7d-ZM-J5Z"/>
-                                <include reference="Ckl-IW-zhK"/>
-                                <exclude reference="g6h-Fw-gGc"/>
-                                <include reference="391-u8-hGa"/>
-                                <exclude reference="4JT-my-28K"/>
-                                <exclude reference="M3q-uB-Ypa"/>
-                                <include reference="VOO-6N-aRR"/>
-                                <exclude reference="cwe-HZ-yHR"/>
-                                <include reference="XTY-9f-WTC"/>
-                                <exclude reference="llH-NU-vnN"/>
                                 <exclude reference="3UG-xp-WYH"/>
                                 <include reference="7YB-E6-nLT"/>
                                 <include reference="duk-ZE-OwT"/>
@@ -533,6 +522,17 @@
                                 <include reference="oao-v5-Pq8"/>
                                 <exclude reference="vLx-LZ-u5R"/>
                                 <exclude reference="wZ5-Da-tQU"/>
+                                <include reference="5T0-kF-C3B"/>
+                                <exclude reference="d7d-ZM-J5Z"/>
+                                <include reference="391-u8-hGa"/>
+                                <exclude reference="4JT-my-28K"/>
+                                <exclude reference="M3q-uB-Ypa"/>
+                                <include reference="VOO-6N-aRR"/>
+                                <exclude reference="cwe-HZ-yHR"/>
+                                <include reference="Ckl-IW-zhK"/>
+                                <exclude reference="g6h-Fw-gGc"/>
+                                <include reference="XTY-9f-WTC"/>
+                                <exclude reference="llH-NU-vnN"/>
                             </mask>
                         </variation>
                     </view>
@@ -567,6 +567,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lB7-sK-0cQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ePM-gq-fsh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
