@@ -36,7 +36,6 @@ func saveEmpleados(empleados:[Empleados]) {
    guard let folder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
       return
    }
-   print(folder)
    let ruta = folder.appendingPathComponent("datosEmpleados").appendingPathExtension("json")
    do {
       let encoder = JSONEncoder()
@@ -46,4 +45,23 @@ func saveEmpleados(empleados:[Empleados]) {
    } catch {
       print("Error grabando datos \(error)")
    }
+}
+
+func saveImage(id:Int, image:UIImage) {
+   guard let folder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first, let imagenData = image.pngData() else {
+      return
+   }
+   let ruta = folder.appendingPathComponent("imagen_\(id)").appendingPathExtension("png")
+   try? imagenData.write(to: ruta, options: .atomicWrite)
+}
+
+func loadImage(id:Int) -> UIImage? {
+   guard let folder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+      return nil
+   }
+   let ruta = folder.appendingPathComponent("imagen_\(id)").appendingPathExtension("png")
+   if let data = try? Data(contentsOf: ruta) {
+      return UIImage(data: data)
+   }
+   return nil
 }

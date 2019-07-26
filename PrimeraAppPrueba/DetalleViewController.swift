@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetalleViewController: UITableViewController {
+class DetalleViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
    @IBOutlet weak var nombre: UITextField!
    @IBOutlet weak var apellidos: UITextField!
@@ -19,6 +19,7 @@ class DetalleViewController: UITableViewController {
    var seleccionado:Empleados?
    var rowOrigen:Int?
    var imagen:UIImage?
+   var imagenCambiada = false
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -37,7 +38,13 @@ class DetalleViewController: UITableViewController {
    }
    
    @IBAction func cambiarAvatar(_ sender: UIButton) {
-      
+      let picker = UIImagePickerController()
+      picker.sourceType = .photoLibrary
+      if let media = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
+         picker.mediaTypes = media
+      }
+      picker.delegate = self
+      present(picker, animated: true, completion: nil)
    }
    
    @IBAction func save(_ sender: UIBarButtonItem) {
@@ -59,5 +66,20 @@ class DetalleViewController: UITableViewController {
          return
       }
       destination.empUpdated = newEmpleado
+      if imagenCambiada, let imagen = imagenAvatar.image {
+         saveImage(id: newEmpleado.id, image: imagen)
+      }
+   }
+   
+   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+      picker.dismiss(animated: true, completion: nil)
+   }
+   
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+      if let imagen = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let resized = imagen.resize(width: 300) {
+         imagenAvatar.image = resized
+         imagenCambiada = true
+      }
+      picker.dismiss(animated: true, completion: nil)
    }
 }

@@ -36,10 +36,15 @@ class Empleados1ViewController: UITableViewController {
       cell.last_name.text = dato.last_name
       cell.department.text = dato.department
       cell.email.text = dato.email
-      getImage(url: dato.avatar) { imagen in
-         DispatchQueue.main.async {
-            if let visible = tableView.indexPathsForVisibleRows, visible.contains(indexPath) {
-               cell.avatarImage.image = imagen
+      if let imagen = loadImage(id: dato.id) {
+         cell.avatarImage.image = imagen
+      } else {
+         getImage(url: dato.avatar) { imagen in
+            DispatchQueue.main.async {
+               if let visible = tableView.indexPathsForVisibleRows, visible.contains(indexPath) {
+                  cell.avatarImage.image = imagen
+                  saveImage(id: dato.id, image: imagen)
+               }
             }
          }
       }
