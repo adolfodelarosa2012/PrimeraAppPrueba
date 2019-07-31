@@ -15,7 +15,8 @@ class Table1ViewController: UITableViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
+      print("Hola")
+      print("Adiós")
       // Uncomment the following line to preserve selection between presentations
       self.clearsSelectionOnViewWillAppear = false
       

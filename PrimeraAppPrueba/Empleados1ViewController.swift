@@ -17,13 +17,26 @@ class Empleados1ViewController: UITableViewController {
       super.viewDidLoad()
       self.clearsSelectionOnViewWillAppear = false
       self.navigationItem.rightBarButtonItem = self.editButtonItem
+      if UIDevice.current.userInterfaceIdiom == .pad {
+         NotificationCenter.default.addObserver(forName: NSNotification.Name("SAVEOK"), object: nil, queue: OperationQueue.main) {
+            [weak self] notification in
+            guard let userinfo = notification.userInfo, let empleado = userinfo["Empleado"] as? Empleados, let row = userinfo["row"] as? Int, var empleados = self?.empleados else {
+               return
+            }
+            empleados[row] = empleado
+            saveEmpleados(empleados: empleados)
+            self?.empleados = loadEmpleados()
+            let indexPath = IndexPath(row: row, section: 0)
+            self?.tableView.reloadRows(at: [indexPath], with: .none)
+         }
+      }
    }
    
    override func viewDidAppear(_ animated: Bool) {
       if UIDevice.current.userInterfaceIdiom == .pad {
          print("2")
          let dato = empleados[0]
-         NotificationCenter.default.post(name: NSNotification.Name("PULSOCELDA"), object: nil, userInfo: ["EmpleadoPulsado":dato])
+         NotificationCenter.default.post(name: NSNotification.Name("PULSOCELDA"), object: nil, userInfo: ["EmpleadoPulsado":dato, "row":0])
       }
       super.viewDidAppear(animated)
    }
@@ -147,7 +160,7 @@ class Empleados1ViewController: UITableViewController {
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       if UIDevice.current.userInterfaceIdiom == .pad {
          let dato = empleados[indexPath.row]
-         NotificationCenter.default.post(name: NSNotification.Name("PULSOCELDA"), object: nil, userInfo: ["EmpleadoPulsado":dato])
+         NotificationCenter.default.post(name: NSNotification.Name("PULSOCELDA"), object: nil, userInfo: ["EmpleadoPulsado":dato, "row":indexPath.row])
       }
    }
 }

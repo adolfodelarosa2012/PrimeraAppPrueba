@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PrimeraAppPrueba/Empleados1ViewController.swift"
-            timestampString = "586093627.900654"
+            timestampString = "586166389.336473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "salidaDetalle(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PrimeraAppPrueba/DetalleViewController.swift"
-            timestampString = "586081617.894363"
+            timestampString = "586166389.337167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PrimeraAppPrueba/DetalleViewController.swift"
-            timestampString = "586081617.894475"
+            timestampString = "586166389.337234"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -58,13 +58,136 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PrimeraAppPrueba/Empleados1ViewController.swift"
-            timestampString = "586093627.90073"
+            timestampString = "586166389.337294"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrimeraAppPrueba/Empleados1ViewController.swift"
+            timestampString = "586168227.093521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "Empleados1ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrimeraAppPrueba.Empleados1ViewController.empUpdated.getter : Swift.Optional&lt;PrimeraAppPrueba.Empleados&gt;"
+                  moduleName = "PrimeraAppPrueba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Dev1/Developer/PrimeraAppPrueba/PrimeraAppPrueba/Empleados1ViewController.swift"
+                  timestampString = "586168231.158672"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrimeraAppPrueba.Empleados1ViewController.empUpdated.setter : Swift.Optional&lt;PrimeraAppPrueba.Empleados&gt;"
+                  moduleName = "PrimeraAppPrueba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Dev1/Developer/PrimeraAppPrueba/PrimeraAppPrueba/Empleados1ViewController.swift"
+                  timestampString = "586168231.161762"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrimeraAppPrueba.Empleados1ViewController.empUpdated.modify : Swift.Optional&lt;PrimeraAppPrueba.Empleados&gt;"
+                  moduleName = "PrimeraAppPrueba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Dev1/Developer/PrimeraAppPrueba/PrimeraAppPrueba/Empleados1ViewController.swift"
+                  timestampString = "586168231.1636339"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrimeraAppPrueba.Empleados1ViewController.empUpdated.modify : Swift.Optional&lt;PrimeraAppPrueba.Empleados&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "PrimeraAppPrueba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Dev1/Developer/PrimeraAppPrueba/PrimeraAppPrueba/Empleados1ViewController.swift"
+                  timestampString = "586168231.165068"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrimeraAppPrueba.Empleados1ViewController.init(style: __C.UITableViewStyle) -&gt; PrimeraAppPrueba.Empleados1ViewController"
+                  moduleName = "PrimeraAppPrueba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Dev1/Developer/PrimeraAppPrueba/PrimeraAppPrueba/Empleados1ViewController.swift"
+                  timestampString = "586168231.167046"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "305">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrimeraAppPrueba.Empleados1ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; PrimeraAppPrueba.Empleados1ViewController"
+                  moduleName = "PrimeraAppPrueba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Dev1/Developer/PrimeraAppPrueba/PrimeraAppPrueba/Empleados1ViewController.swift"
+                  timestampString = "586168231.168308"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "330">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrimeraAppPrueba.Empleados1ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;PrimeraAppPrueba.Empleados1ViewController&gt;"
+                  moduleName = "PrimeraAppPrueba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Dev1/Developer/PrimeraAppPrueba/PrimeraAppPrueba/Empleados1ViewController.swift"
+                  timestampString = "586168231.169515"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "278">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

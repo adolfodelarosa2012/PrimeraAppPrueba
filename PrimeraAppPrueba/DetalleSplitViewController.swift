@@ -20,12 +20,14 @@ class DetalleSplitViewController: UIViewController, UIImagePickerControllerDeleg
    var oldEmpleado:Empleados?
    var imagenCambiada = false
    var dptos:[String] = []
+   var row:Int?
    
-   override func viewDidLoad() {
+   override func viewDidLoad() {      
       super.viewDidLoad()
       NotificationCenter.default.addObserver(forName: NSNotification.Name("PULSOCELDA"), object: nil, queue: OperationQueue.main) { [weak self] notification in
-         if let userInfo = notification.userInfo, let dato = userInfo["EmpleadoPulsado"] as? Empleados {
+         if let userInfo = notification.userInfo, let dato = userInfo["EmpleadoPulsado"] as? Empleados, let row = userInfo["row"] as? Int {
             self?.oldEmpleado = dato
+            self?.row = row
             self?.cargaDatos()
          }
       }
@@ -68,11 +70,13 @@ class DetalleSplitViewController: UIViewController, UIImagePickerControllerDeleg
    }
    
    @objc func doneButton(_ sender:UIBarButtonItem) {
+      departamento.resignFirstResponder()
       
    }
 
    @objc func cancelButton(_ sender:UIBarButtonItem) {
-      
+      departamento.resignFirstResponder()
+      departamento.text = oldEmpleado?.department ?? ""
    }
 
    @IBAction func cambiarAvatar(_ sender: UIButton) {
@@ -92,6 +96,18 @@ class DetalleSplitViewController: UIViewController, UIImagePickerControllerDeleg
    }
    
    @IBAction func save(_ sender: UIBarButtonItem) {
+      guard let oldEmpleado = oldEmpleado, let first_name = nombre.text, let last_name = apellidos.text, let email = email.text, let department = departamento.text, let row = row else {
+         return
+      }
+      if first_name.isEmpty || last_name.isEmpty || email.isEmpty || department.isEmpty {
+         showAlert(vc: self, mensaje: "Datos inválidos. Corrija antes de grabar.")
+         return
+      }
+      let newEmpleado = Empleados(id: oldEmpleado.id, first_name: first_name, last_name: last_name, email: email, department: department, avatar: oldEmpleado.avatar)
+      if imagenCambiada, let imagen = avatar.image {
+         saveImage(id: newEmpleado.id, image: imagen)
+      }
+      NotificationCenter.default.post(name: NSNotification.Name("SAVEOK"), object: nil, userInfo: ["Empleado": newEmpleado, "row":row])
    }
    
    @IBAction func enviarEmail(_ sender: UIBarButtonItem) {

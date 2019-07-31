@@ -19,6 +19,8 @@
 		5A76275C22D3435300C9AE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A76275A22D3435300C9AE15 /* Main.storyboard */; };
 		5A76275E22D3435500C9AE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A76275D22D3435500C9AE15 /* Assets.xcassets */; };
 		5A76276122D3435500C9AE15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A76275F22D3435500C9AE15 /* LaunchScreen.storyboard */; };
+		5A7664A222F05CC90003E29C /* EmpleadosModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A7664A022F05CC90003E29C /* EmpleadosModel.xcdatamodeld */; };
+		5A7664A422F060EF0003E29C /* ModelDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7664A322F060EF0003E29C /* ModelDB.swift */; };
 		5A86AC7122DC8E9A00C23E5B /* Table1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86AC7022DC8E9A00C23E5B /* Table1ViewController.swift */; };
 		5AC9937B22DDB4F100A5EADC /* Test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC9937A22DDB4F100A5EADC /* Test.xib */; };
 		5AC9937D22DDDFB900A5EADC /* MOCK_DATA.json in Resources */ = {isa = PBXBuildFile; fileRef = 5AC9937C22DDDFB900A5EADC /* MOCK_DATA.json */; };
@@ -44,6 +46,8 @@
 		5A76275D22D3435500C9AE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A76276022D3435500C9AE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A76276222D3435500C9AE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A7664A122F05CC90003E29C /* EmpleadosModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EmpleadosModel.xcdatamodel; sourceTree = "<group>"; };
+		5A7664A322F060EF0003E29C /* ModelDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDB.swift; sourceTree = "<group>"; };
 		5A86AC7022DC8E9A00C23E5B /* Table1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table1ViewController.swift; sourceTree = "<group>"; };
 		5AC9937A22DDB4F100A5EADC /* Test.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test.xib; sourceTree = "<group>"; };
 		5AC9937C22DDDFB900A5EADC /* MOCK_DATA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MOCK_DATA.json; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 		5A76275522D3435300C9AE15 /* PrimeraAppPrueba */ = {
 			isa = PBXGroup;
 			children = (
+				5A7664A022F05CC90003E29C /* EmpleadosModel.xcdatamodeld */,
 				5A7325D722E9CBDE004EF57E /* DetalleSplitViewController.swift */,
 				5A76275622D3435300C9AE15 /* AppDelegate.swift */,
 				5A4FD5D522D5D8C800E82462 /* VistaViewController.swift */,
@@ -99,6 +104,7 @@
 				5A54DF5F22E724C600DC3D29 /* Extension.swift */,
 				5A41586B22E0688F00B1A934 /* Utils.swift */,
 				5AC9938222DDE3A100A5EADC /* Model.swift */,
+				5A7664A322F060EF0003E29C /* ModelDB.swift */,
 				5AC9938022DDE17600A5EADC /* Empleados1ViewController.swift */,
 				5AC9937A22DDB4F100A5EADC /* Test.xib */,
 				5AC9937C22DDDFB900A5EADC /* MOCK_DATA.json */,
@@ -184,8 +190,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A7664A422F060EF0003E29C /* ModelDB.swift in Sources */,
 				5A6B2BA322DF20800046A3F4 /* DetalleViewController.swift in Sources */,
 				5AC9938322DDE3A100A5EADC /* Model.swift in Sources */,
+				5A7664A222F05CC90003E29C /* EmpleadosModel.xcdatamodeld in Sources */,
 				5AF34EA622E859EF00593ABD /* CollectionViewCell.swift in Sources */,
 				5A7325D822E9CBDE004EF57E /* DetalleSplitViewController.swift in Sources */,
 				5A4FD5D622D5D8C800E82462 /* VistaViewController.swift in Sources */,
@@ -398,6 +406,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5A7664A022F05CC90003E29C /* EmpleadosModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5A7664A122F05CC90003E29C /* EmpleadosModel.xcdatamodel */,
+			);
+			currentVersion = 5A7664A122F05CC90003E29C /* EmpleadosModel.xcdatamodel */;
+			path = EmpleadosModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5A76274B22D3435300C9AE15 /* Project object */;
 }
