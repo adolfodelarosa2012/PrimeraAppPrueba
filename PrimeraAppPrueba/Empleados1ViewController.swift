@@ -19,6 +19,15 @@ class Empleados1ViewController: UITableViewController {
       self.navigationItem.rightBarButtonItem = self.editButtonItem
    }
    
+   override func viewDidAppear(_ animated: Bool) {
+      if UIDevice.current.userInterfaceIdiom == .pad {
+         print("2")
+         let dato = empleados[0]
+         NotificationCenter.default.post(name: NSNotification.Name("PULSOCELDA"), object: nil, userInfo: ["EmpleadoPulsado":dato])
+      }
+      super.viewDidAppear(animated)
+   }
+   
    // MARK: - Table view data source
    
    override func numberOfSections(in tableView: UITableView) -> Int {

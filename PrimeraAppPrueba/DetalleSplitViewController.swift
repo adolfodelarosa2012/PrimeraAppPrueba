@@ -7,29 +7,158 @@
 //
 
 import UIKit
+import MessageUI
 
-class DetalleSplitViewController: UIViewController {
+class DetalleSplitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+
+   @IBOutlet weak var nombre: UITextField!
+   @IBOutlet weak var apellidos: UITextField!
+   @IBOutlet weak var email: UITextField!
+   @IBOutlet weak var departamento: UITextField!
+   @IBOutlet weak var avatar: UIImageView!
    
-   @IBOutlet weak var label: UILabel!
+   var oldEmpleado:Empleados?
+   var imagenCambiada = false
+   var dptos:[String] = []
    
    override func viewDidLoad() {
       super.viewDidLoad()
       NotificationCenter.default.addObserver(forName: NSNotification.Name("PULSOCELDA"), object: nil, queue: OperationQueue.main) { [weak self] notification in
          if let userInfo = notification.userInfo, let dato = userInfo["EmpleadoPulsado"] as? Empleados {
-            self?.label?.text = "\(dato.last_name), \(dato.first_name)"
+            self?.oldEmpleado = dato
+            self?.cargaDatos()
+         }
+      }
+      departamento.delegate = self
+   }
+   
+   func cargaDatos() {
+      if let emp = oldEmpleado {
+         nombre.text = emp.first_name
+         apellidos.text = emp.last_name
+         email.text = emp.email
+         departamento.text = emp.department
+         if let imagen = loadImage(id: emp.id) {
+            avatar.image = imagen
          }
       }
    }
    
+   func cambiarPuesto(_ sender:UITextField) {
+      dptos = Array(Set(loadEmpleados().map { $0.department })).sorted()
+      let picker = UIPickerView()
+      picker.delegate = self
+      picker.dataSource = self
+      
+      sender.inputView = picker
+      let toolbar = UIToolbar()
+      toolbar.barStyle = .default
+      toolbar.isTranslucent = true
+      toolbar.tintColor = .gray
+      toolbar.sizeToFit()
+      
+      let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButton(_:)))
+      let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+      let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButton(_:)))
+      toolbar.setItems([doneButton, spacer, cancelButton], animated: false)
+      sender.inputAccessoryView = toolbar
+      
+      let indiceActual = dptos.firstIndex { $0 == departamento.text ?? "" }
+      picker.selectRow(indiceActual ?? 0, inComponent: 0, animated: false)
+   }
    
-   /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destination.
-    // Pass the selected object to the new view controller.
-    }
-    */
+   @objc func doneButton(_ sender:UIBarButtonItem) {
+      
+   }
+
+   @objc func cancelButton(_ sender:UIBarButtonItem) {
+      
+   }
+
+   @IBAction func cambiarAvatar(_ sender: UIButton) {
+      let picker = UIImagePickerController()
+      picker.sourceType = .photoLibrary
+      if let media = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
+         picker.mediaTypes = media
+      }
+      picker.delegate = self
+      picker.modalPresentationStyle = .popover
+      present(picker, animated: true, completion: nil)
+      picker.popoverPresentationController?.sourceView = sender
+   }
    
+   @IBAction func cancel(_ sender: UIBarButtonItem) {
+      cargaDatos()
+   }
+   
+   @IBAction func save(_ sender: UIBarButtonItem) {
+   }
+   
+   @IBAction func enviarEmail(_ sender: UIBarButtonItem) {
+      if !MFMailComposeViewController.canSendMail() {
+         print("No se pueden enviar emails")
+         return
+      }
+      let email = MFMailComposeViewController()
+      if let imagen = avatar.image?.jpegData(compressionQuality: 0.7) {
+         email.addAttachmentData(imagen, mimeType: "image/jpeg", fileName: "avatar.jpg")
+      }
+      email.setSubject("Contacto \(oldEmpleado?.last_name ?? "Nombre")")
+      email.setMessageBody("<p>Correo para ti</p>", isHTML: true)
+      email.delegate = self
+      present(email, animated: true, completion: nil)
+   }
+   
+   @IBAction func compartir(_ sender: UIBarButtonItem) {
+      guard let image = avatar.image, let nombre = nombre.text, let apellidos = apellidos.text else {
+         return
+      }
+      let nombreCompleto = "\(apellidos), \(nombre)"
+      let activity = UIActivityViewController(activityItems: [image, nombreCompleto], applicationActivities: nil)
+      activity.excludedActivityTypes = [.addToReadingList, .airDrop]
+      activity.completionWithItemsHandler = { (atype, success, items, error) in
+         if success {
+            print("Dato compartido")
+         }
+      }
+      activity.modalPresentationStyle = .popover
+      activity.popoverPresentationController?.barButtonItem = sender
+      present(activity, animated: true, completion: nil)
+   }
+   
+   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+      picker.dismiss(animated: true, completion: nil)
+   }
+   
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+      if let imagen = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let resized = imagen.resize(width: 300) {
+         avatar.image = resized
+         imagenCambiada = true
+      }
+      picker.dismiss(animated: true, completion: nil)
+   }
+   
+   func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+      controller.dismiss(animated: true, completion: nil)
+   }
+   
+   func textFieldDidBeginEditing(_ textField: UITextField) {
+      cambiarPuesto(textField)
+   }
+   
+   func numberOfComponents(in pickerView: UIPickerView) -> Int {
+      return 1
+   }
+   
+   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+      return dptos.count
+   }
+   
+   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+      return dptos[row]
+   }
+   
+   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+      departamento.text = dptos[row]
+   }
 }
